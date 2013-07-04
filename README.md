@@ -14,9 +14,13 @@ Built for iOS app Trunk Notes.
 
 
 ## Edge Cases
-## Installing
 ## Installation
 ## Usage
+
+Tentative, but something like:
+{{ lua (filename) (years) (current-month-and-day) }}
+
+
 ## Examples
 
 ## Contributing
