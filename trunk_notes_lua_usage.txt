@@ -1,0 +1,18 @@
+
+# Some text on how Lua interfaces with Trunk Notes
+
+
+{{lua Multiply.lua, 5, 10}} and have the answer 50 appear in a page. 
+number1 = args[1]
+number2 = args[2]
+answer = number1 * number2
+return answer
+
+
+wiki.get(page_name) – returns a page from the wiki. nil is returned if the page does not exist.
+
+
+A wiki page is a Lua table (a little bit like a dictionary) describing the page. The following attributes are available:
+contents – the actual contents of the page
+arguments – the list of arguments taken from the query string
+

@@ -18,7 +18,7 @@ Built for iOS app Trunk Notes.
 ## Usage
 
 Tentative, but something like:
-{{ lua (filename) (years) (current-month-and-day) }}
+{{lua (filename), (array_of_years), (current_month_and_day)}}
 
 
 ## Examples
