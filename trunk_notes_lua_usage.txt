@@ -9,10 +9,14 @@ answer = number1 * number2
 return answer
 
 
-wiki.get(page_name) – returns a page from the wiki. nil is returned if the page does not exist.
+returns a page from the wiki. nil is returned if the page does not exist
+page = wiki.get(title)
+string.find(page.contents, "text")
 
 
 A wiki page is a Lua table (a little bit like a dictionary) describing the page. The following attributes are available:
 contents – the actual contents of the page
 arguments – the list of arguments taken from the query string
+
+page = wiki.get(title)
 
