@@ -7,12 +7,14 @@ https://github.com/jessc
 
 # bug list:
 # todo:
+ - You also need to have the years you want to look for. (do you really need this?)
+
 ]]
 
 
 --[[
 
--- this shows just month-day as numbers
+-- this will give you the month-date string
 return os.date('%m-%d')
 
 

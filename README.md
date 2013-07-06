@@ -17,20 +17,20 @@ So you have three pieces:
 
 You also need to have the years you want to look for. (do you really need this?)
 
-Just as an example, let's name them:
+These pieces we'll name:
 1) journal.txt
 2) date_collator.lua
 3) this_dates_events.txt
 
 The file journal.txt needs to start with the date and have the whole entry on one line.
 
-Create date_collator.lua in Trunk Notes and paste the script's code into it.
+Copy the date_collator.lua file into Trunk Notes.
 
-Create this_dates_events.txt in Trunk Notes and paste this in:
+Copy this_dates_events.txt to Trunk Notes, or paste this line into a page of your choosing:
 
 {{lua date_collator.lua, journal.txt, (array_of_years)}}
 
-That will load the script, run it on your journal, and output the text to the page.
+Going to this_dates_events.txt will load the script, run it on your journal, and output the text to the page.
 
 
 ## Edge Cases

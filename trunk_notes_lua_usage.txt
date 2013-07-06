@@ -46,10 +46,6 @@ string.find('foobar', 'bar') -->4  6
 actually, it returns two values plus any captures. Because string.find() knows regular expressions ("patterns").
 
 
-# for finding the current date and time, to use when.
-http://www.lua.org/manual/5.1/manual.html#pdf-os.time
-http://www.lua.org/manual/5.1/manual.html#pdf-os.date
-
 
 
 
