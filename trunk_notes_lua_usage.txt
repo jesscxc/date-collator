@@ -52,5 +52,4 @@ http://www.lua.org/manual/5.1/manual.html#pdf-os.date
 
 
 
-"Making this script run is pretty simple. Create a note called countdowns.lua and post the code into the body. Now, wherever you want that text inserted, simply type {{lua countdowns.lua}}. It’ll load the script, run it on your wiki, and output the results to the page."
 

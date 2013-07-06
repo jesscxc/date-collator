@@ -10,13 +10,15 @@ Uses current date (month and day), collates all the lines into one file, display
 
 ## Installation
 
-Create new file in Trunk Notes. (todo: certain name?)
+Create new file in Trunk Notes called date_collator.lua and paste the code from the script into the file.
 
-Copy code from script, then paste it in the file.
+Then create a new file (perhaps called this_dates_events).
 
-Put (tentative, but something like):
+Put this into it (tentative, but something like):
+
 {{lua date_collator, (filename), (array_of_years), (current_month_and_day)}}
-in another file that will show the text when you visit that page.
+
+That will load the script, run it on your wiki, and output the text to the page.
 
 
 ## Edge Cases
