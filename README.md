@@ -15,8 +15,6 @@ So you have three pieces:
 2) the Lua script
 3) the page to display the output of the script
 
-You also need to have the years you want to look for. (do you really need this?)
-
 These pieces we'll name:
 1) journal.txt
 2) date_collator.lua
@@ -28,7 +26,9 @@ Copy the date_collator.lua file into Trunk Notes.
 
 Copy this_dates_events.txt to Trunk Notes, or paste this line into a page of your choosing:
 
-{{lua date_collator.lua, journal.txt, (array_of_years)}}
+{{lua date_collator.lua, journal.txt, (start_year), (end_year)}}
+
+(You also need to have the years you want to look for. (do you really need this?))
 
 Going to this_dates_events.txt will load the script, run it on your journal, and output the text to the page.
 

@@ -2,16 +2,11 @@
 # Some text on how Lua interfaces with Trunk Notes
 
 
-{{lua Multiply.lua, 5, 10}} and have the answer 50 appear in a page. 
-number1 = args[1]
-number2 = args[2]
-answer = number1 * number2
-return answer
+{{lua Multiply.lua, 5, 10}}
+n1 = args[1]
+n2 = args[2]
+return n1 * n2
 
-
-returns a page from the wiki. nil is returned if the page does not exist
-page = wiki.get(title)
-string.find(page.contents, "text")
 
 
 A wiki page is a Lua table (a hash) describing the page. The following attributes are available:
@@ -19,8 +14,8 @@ contents – the actual contents of the page
 arguments – the list of arguments taken from the query string
 
 
-
-example code:
+page = wiki.get(title)
+string.find(page.contents, "text")
 is_a_front = false
 for _, tag in pairs(page.tags) do
   if tag == "Front" then
