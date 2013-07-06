@@ -14,9 +14,35 @@ page = wiki.get(title)
 string.find(page.contents, "text")
 
 
-A wiki page is a Lua table (a little bit like a dictionary) describing the page. The following attributes are available:
+A wiki page is a Lua table (a hash) describing the page. The following attributes are available:
 contents – the actual contents of the page
 arguments – the list of arguments taken from the query string
 
-page = wiki.get(title)
+
+
+example code:
+is_a_front = false
+for _, tag in pairs(page.tags) do
+  if tag == "Front" then
+    is_a_front = true
+  end
+end
+if is_a_front then
+    _, title_end = string.find(page.contents, "#Countdown\n")
+    if title_end then
+      _,_,first_plot = string.find(page.contents, "(%* .*)", title_end)
+      if first_plot then
+        title_list = title_list .. first_plot .. " ([[" .. title .. "]])\n"
+      end
+    end
+end
+
+
+
+
+string.find() will find the first instance of its second argument in its first, returning two values - where the match starts, and where the match ends. In other words:
+string.find('foobar', 'foo') -->1  3
+string.find('foobar', 'bar') -->4  6
+actually, it returns two values plus any captures. Because string.find() knows regular expressions ("patterns").
+
 

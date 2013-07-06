@@ -18,9 +18,11 @@ Put (tentative, but something like):
 {{lua date_collator, (filename), (array_of_years), (current_month_and_day)}}
 in another file that will show the text when you visit that page.
 
-## Edge Cases
-## Examples
 
+## Edge Cases
+ - make sure it works with feb 29?
+
+## Examples
 ## Contributing
  - add features
 
