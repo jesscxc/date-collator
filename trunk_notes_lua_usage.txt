@@ -152,8 +152,8 @@ for pageIteration, pageTitle in ipairs(wiki.titles()) do
 end
 table.sort(pageTimes, function(a,b) return a>b end)
 
-for i=1,20 do
-  returnString = returnString .. "[[" .. pageTimeMapping[pageTimes[i]] .. "]] "
+for i=1,5 do
+  returnString = returnString .. "[[" .. pageTimeMapping[pageTimes[i]] .. "]]\n"
 end
 
 return returnString

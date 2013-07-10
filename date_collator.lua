@@ -1,18 +1,19 @@
 -- date_collator.lua
-
 --[[
 2013-07
 Jesse Cummins
 https://github.com/jessc
 # With inspiration from evitiello:
 https://github.com/evitiello/TrunkNotesScripts
-
-
 # bug list:
 # todo:
  - You also need to have the years you want to look for. (do you really need this?)
-
 ]]
+--[[
+-- this will give you the month-date string
+return os.date('%m-%d')
+]]
+
 
 
 
@@ -35,21 +36,15 @@ for pageIteration, pageTitle in ipairs(wiki.titles()) do
 end
 table.sort(pageTimes, function(a,b) return a>b end)
 
-for i=1, 20 do
+for i = 1, 5 do
 	returnString = returnString .. "[[" .. pageTimeMapping[pageTimes[i]] .. "]]\n"
 end
+
+returnString = returnString .. args[2]
 
 return returnString
 
 
 
-
---[[
-
--- this will give you the month-date string
-return os.date('%m-%d')
-
-
-]]
 
 
