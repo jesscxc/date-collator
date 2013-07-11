@@ -22,9 +22,14 @@ num_args = args[1]
 
 
 returnString = ""
+years = {}
 
 for i = 1, num_args do
-	returnString = returnString .. args[i+1] .. "\n"
+	table.insert(years, args[i+1])
+end
+
+for i = 1, num_args do
+	returnString = returnString .. years[i] .. "\n"
 end
 
 
