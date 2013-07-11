@@ -12,7 +12,7 @@ https://github.com/evitiello/TrunkNotesScripts
 
 journal_name = wiki.get(args[1])
 text = journal_name.contents
--- string.find(text, "text")
+start, fin = string.find(text, "Stratocaster")
 
 
 num_years = args[2]
@@ -28,6 +28,10 @@ for i = 1, num_years do
 	returnString = returnString .. full_dates[i] .. "\n"
 end
 
--- return returnString
-return text
+
+returnString = "" .. start .. ", " .. fin
+
+return returnString
+
+
 
