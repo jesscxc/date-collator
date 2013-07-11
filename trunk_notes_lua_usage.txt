@@ -54,39 +54,6 @@ http://www.lua.org/pil/11.1.html
 
 
 
--- this code may work to send out multiple values:
---[[
---
--- Generates a list of pages that have a tag named the same as the current page.
---
-
-returnValue = ""
-titles = ""
-pagesWithTag = 0
-
-for pageIteration, currentPageTitle in ipairs(wiki.titles()) do
-  
-  for tagIteration, tag in ipairs(wiki.get(currentPageTitle).tags) do
-  
-    if (tag == page.title) then
-      pagesWithTag = pagesWithTag + 1
-      titles = titles .. "[[" .. currentPageTitle .. "]] "
-    end
-  
-  end
-  
-end
-
-
-if (pagesWithTag > 0) then
-  returnValue = "###Pages With This Tag###\n " .. titles
-end
-
-return returnValue
-
-]]
-
-
 
 
 
@@ -129,8 +96,8 @@ return all_args
 
 
 -- Finally! This code seems to work right.
--- Seems you have to create a new file (test.lua), then paste this code,
--- and it's executed properly:
+-- Seems you have to create a new file (test.lua),
+-- then paste this code, and it's executed properly:
 --[[
 -- Displays the last 20 pages that have been modified.
 function string.starts(String,Start)

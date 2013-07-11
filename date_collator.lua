@@ -16,17 +16,31 @@ return os.date('%m-%d')
 ]]
 
 
+-- {{lua try.lua, 2, 2009, 2010}}
+
+
+num_args = args[1]
+
+
+
 returnString = ""
 
-for i = 1, 5 do
+for i = 2, (num_args + 1) do
+	-- returnString = returnString .. args[
 	returnString = returnString .. i .. "\n"
 end
 
-returnString = returnString .. args[1]
+-- all_args = {}
+-- if num_args == 2 then
+-- 	return "true"
+-- 	extra_arg_1 = args[2]
+-- 	extra_arg_2 = args[3]
+-- 	-- table.insert(all_args, extra_arg_1)
+-- end
+
+
+extra_arg_1 = args[2]
+returnString = returnString .. extra_arg_1
 
 return returnString
-
-
-
-
 
