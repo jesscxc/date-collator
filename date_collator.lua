@@ -8,16 +8,17 @@ https://github.com/evitiello/TrunkNotesScripts
 # bug list:
 # todo:
 ]]
--- {{lua try.lua, 2, 2009, 2010}}
+-- {{lua try.lua, try_journal, 2, 2009, 2010}}
 
+-- text = try_journal
 
-num_years = args[1]
+num_years = args[2]
 month_day = os.date('-%m-%d - ')
 returnString = ""
 
 full_dates = {}
 for i = 1, num_years do
-	table.insert(full_dates, args[i+1] .. month_day)
+	table.insert(full_dates, args[i+2] .. month_day)
 end
 
 for i = 1, num_years do
