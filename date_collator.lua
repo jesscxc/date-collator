@@ -1,4 +1,3 @@
-
 -- date_collator.lua
 --[[
 2013-07
@@ -8,19 +7,12 @@ https://github.com/jessc
 https://github.com/evitiello/TrunkNotesScripts
 # bug list:
 # todo:
- - You also need to have the years you want to look for. (do you really need this?)
 ]]
---[[
--- this will give you the month-date string
-return os.date('%m-%d')
-]]
-
 -- {{lua try.lua, 2, 2009, 2010}}
 
 
 num_args = args[1]
-
-
+month_day = os.date('%m-%d')
 returnString = ""
 years = {}
 
@@ -31,7 +23,6 @@ end
 for i = 1, num_args do
 	returnString = returnString .. years[i] .. "\n"
 end
-
 
 return returnString
 
