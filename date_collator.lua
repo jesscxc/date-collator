@@ -30,9 +30,12 @@ for i = 1, num_years do
 	returnString = returnString .. full_dates[i] .. "\n"
 end
 
--- For some reason string.find is only working
--- seemingly when there are spaces around words?
-start, fin = string.find(text, "Stratocaster")
+-- For some reason string.find is only working when:
+start, fin = string.find(text, "2010-0")
+-- but not when the below. what the heck?
+start, fin = string.find(text, "2010-02")
+
+
 returnString = start .. ", " .. fin .. "\n"
 
 
