@@ -45,7 +45,7 @@ string.find('foobar', 'bar') -->4  6
 actually, it returns two values plus any captures. Because string.find() knows regular expressions ("patterns").
 
 
-
+lua arrays
 http://www.lua.org/pil/11.1.html
 
 
@@ -132,10 +132,7 @@ return all_args
 -- Seems you have to create a new file (test.lua), then paste this code,
 -- and it's executed properly:
 --[[
---
 -- Displays the last 20 pages that have been modified.
---
-
 function string.starts(String,Start)
    return string.sub(String,1,string.len(Start))==Start
 end

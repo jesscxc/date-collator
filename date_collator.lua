@@ -1,3 +1,4 @@
+
 -- date_collator.lua
 --[[
 2013-07
@@ -15,32 +16,13 @@ return os.date('%m-%d')
 ]]
 
 
-
-
---
--- Displays the last 20 pages that have been modified.
---
-function string.starts(String,Start)
-   return string.sub(String, 1, string.len(Start)) == Start
-end
-
 returnString = ""
 
-pageTimes = {}
-pageTimeMapping = {}
-
-for pageIteration, pageTitle in ipairs(wiki.titles()) do
-	pageUpdatedTime = wiki.get(pageTitle).updated
-	table.insert(pageTimes, pageUpdatedTime)
-	pageTimeMapping[pageUpdatedTime] = pageTitle
-end
-table.sort(pageTimes, function(a,b) return a>b end)
-
 for i = 1, 5 do
-	returnString = returnString .. "[[" .. pageTimeMapping[pageTimes[i]] .. "]]\n"
+	returnString = returnString .. i .. "\n"
 end
 
-returnString = returnString .. args[2]
+returnString = returnString .. args[1]
 
 return returnString
 
