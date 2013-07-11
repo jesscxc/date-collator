@@ -10,7 +10,10 @@ https://github.com/evitiello/TrunkNotesScripts
 ]]
 -- {{lua try.lua, try_journal, 2, 2009, 2010}}
 
--- text = try_journal
+journal_name = wiki.get(args[1])
+text = journal_name.contents
+-- string.find(text, "text")
+
 
 num_years = args[2]
 month_day = os.date('-%m-%d - ')
@@ -25,6 +28,6 @@ for i = 1, num_years do
 	returnString = returnString .. full_dates[i] .. "\n"
 end
 
-return returnString
-
+-- return returnString
+return text
 
