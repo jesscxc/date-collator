@@ -12,14 +12,16 @@ https://github.com/evitiello/TrunkNotesScripts
 
 journal_name = wiki.get(args[1])
 text = journal_name.contents
-start, fin = string.find(text, "Stratocaster")
 
-
-num_years = args[2]
-month_day = os.date('-%m-%d - ')
 returnString = ""
-
 full_dates = {}
+num_years = args[2]
+-- To make this work with the provided journal,
+-- going to manually set month_day for now. Otherwise use:
+-- month_day = os.date('-%m-%d - ')
+month_day = "-02-19 - "
+
+
 for i = 1, num_years do
 	table.insert(full_dates, args[i+2] .. month_day)
 end
@@ -28,8 +30,11 @@ for i = 1, num_years do
 	returnString = returnString .. full_dates[i] .. "\n"
 end
 
+-- For some reason string.find is only working
+-- seemingly when there are spaces around words?
+start, fin = string.find(text, "Stratocaster")
+returnString = start .. ", " .. fin .. "\n"
 
-returnString = "" .. start .. ", " .. fin
 
 return returnString
 
