@@ -15,32 +15,19 @@ https://github.com/evitiello/TrunkNotesScripts
 return os.date('%m-%d')
 ]]
 
-
 -- {{lua try.lua, 2, 2009, 2010}}
 
 
 num_args = args[1]
 
 
-
 returnString = ""
 
-for i = 2, (num_args + 1) do
-	-- returnString = returnString .. args[
-	returnString = returnString .. i .. "\n"
+for i = 1, num_args do
+	returnString = returnString .. args[i+1] .. "\n"
 end
 
--- all_args = {}
--- if num_args == 2 then
--- 	return "true"
--- 	extra_arg_1 = args[2]
--- 	extra_arg_2 = args[3]
--- 	-- table.insert(all_args, extra_arg_1)
--- end
-
-
-extra_arg_1 = args[2]
-returnString = returnString .. extra_arg_1
 
 return returnString
+
 
