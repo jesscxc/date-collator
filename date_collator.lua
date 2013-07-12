@@ -45,12 +45,21 @@ return returnString
 ]]
 
 
-text = "2009-02-19 - First day of reading Proust and the Squid\n2010-02-19 - Did website work for clients"
+-- text = "2009-02-19 - First day of reading Proust and the Squid\n2010-02-19 - Did website work for clients"
+text = "2010-02-19 - Did website work for clients"
 
 -- This works:
-start, fin = string.find(text, "2010-0")
+start, fin = string.find(text, '2010-0')
+
+-- This:
+-- 2012-0
+-- Returns this:
+-- 1, 4
+-- Why not return:
+-- 1, 6?
+
 -- This doesn't:
--- start, fin = string.find(text, "2010-02-19")
+-- start, fin = string.find(text, "2010-02")
 
 returnString = start .. ", " .. fin .. "\n"
 return returnString
