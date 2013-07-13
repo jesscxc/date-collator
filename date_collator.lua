@@ -11,7 +11,7 @@ https://github.com/evitiello/TrunkNotesScripts
 -- {{lua try.lua, try_journal, 2, 2009, 2010}}
 
 
---[[
+
 journal_name = wiki.get(args[1])
 text = journal_name.contents
 
@@ -31,18 +31,10 @@ for i = 1, num_years do
 	returnString = returnString .. full_dates[i] .. "\n"
 end
 
-returnString = start .. ", " .. fin .. "\n"
+-- start, fin = string.find(text, "2010%-02%-19")
+-- returnString = start .. ", " .. fin .. "\n"
+
+
 return returnString
-
-]]
-
--- example
-text = "2009-02-19 - First day of reading Proust and the Squid\n2010-02-19 - Did website work for clients"
-
-start, fin = string.find(text, "2010%-02%-19")
-
-returnString = start .. ", " .. fin .. "\n"
-return returnString
-
 
 
