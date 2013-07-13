@@ -35,6 +35,17 @@ end
 -- returnString = start .. ", " .. fin .. "\n"
 
 
+-- OK, so now return only the lines
+-- that start with the full_date
+--[[
+Probably has something to do with finding the size of full_dates,
+ running through each one, getting the place it matches (perhaps
+  via string.find), going to the end of the line, copy that
+   text into a new table, with each date separated.
+Then go through those dates, put onto returnString.
+]]
+
+
 return returnString
 
 
