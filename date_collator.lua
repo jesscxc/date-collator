@@ -31,42 +31,26 @@ end
 
 size = table.getn(full_dates)
 for i = 1, size do
-	returnString = returnString .. full_dates[i] .. "\n"
+	date = full_dates[i]
+	date = string.gsub(date, "-", "%%-")
+	returnString = returnString .. date .. "\n"
+
+	-- start, fin = string.find(journal, date)
+	-- returnString = returnString .. start .. ", " .. fin .. "\n"
+
+	-- Something like, if find date in journal,
+	-- add start and fin to returnString
+	-- otherwise add nothing
+
 end
 
-
--- This shows how to escape the strings properly so they can be searched.
-returnString = ""
-date = "2010-02-19 - "
-date = string.gsub(date, "-", "%%-")
-start, fin = string.find(journal, date)
-returnString = start .. ", " .. fin .. "\n"
 return returnString
 
 
+-- -- This shows how to escape the strings properly so they can be searched.
 -- returnString = ""
--- start, fin = string.find(journal, full_dates[1])
+-- date = "2010-02-19 - "
+-- date = string.gsub(date, "-", "%%-")
+-- start, fin = string.find(journal, date)
 -- returnString = start .. ", " .. fin .. "\n"
 -- return returnString
-
-
--- Use this to find the starting positions of
--- where each line is that has the journal entry.
--- See if with Lua you can start a string.find at a specific location,
--- so you could start searching at 'start' and go to '\n', then
--- take that whole bit and add to returnString
--- start, fin = string.find(journal, "2009%-02%-19 %- ")
--- returnString = start .. ", " .. fin .. "\n"
-
-
--- OK, so now return only the lines
--- that start with the full_date
---[[
-Probably has something to do with finding the size of full_dates,
- running through each one, getting the place it matches (perhaps
-  via string.find), going to the end of the line, copy that
-   text into a new table, with each date separated.
-Then go through those dates, put onto returnString.
-]]
-
-
