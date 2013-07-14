@@ -12,8 +12,7 @@ https://github.com/evitiello/TrunkNotesScripts
 -- {{lua try.lua, try_journal, 2008}}
 
 
-journal = wiki.get(args[1])
-text = journal.contents
+journal = wiki.get(args[1]).contents
 
 -- To make this work with the provided journal,
 -- going to manually set month_day for now. Otherwise use:
@@ -38,8 +37,11 @@ end
 return returnString
 
 
--- Use this later to find the starting positions of
--- where each line is that has the journal entry:
+-- Use this to find the starting positions of
+-- where each line is that has the journal entry.
+-- See if with Lua you can start a string.find at a specific location,
+-- so you could start searching at 'start' and go to '\n', then
+-- take that whole bit and add to returnString
 -- start, fin = string.find(text, "2010%-02%-19")
 -- returnString = start .. ", " .. fin .. "\n"
 
