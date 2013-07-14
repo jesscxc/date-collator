@@ -11,11 +11,6 @@ https://github.com/evitiello/TrunkNotesScripts
 
 -- {{lua try.lua, try_journal, 2008}}
 
--- Instead of using multiple years in the arguments list,
--- take in only a start year and
--- use the end year as the current year:
--- start_year, end_year = cur_year
-
 
 journal = wiki.get(args[1])
 text = journal.contents
@@ -26,20 +21,25 @@ text = journal.contents
 month_day = "-02-19 - "
 returnString = ""
 full_dates = {}
-num_years = args[2]
-
--- start_year = args[2]
--- end_year = os.date("%Y")
+start_year = args[2]
+end_year = os.date("%Y")
 
 
-for i = 1, num_years do
-	table.insert(full_dates, args[i+2] .. month_day)
+for year = start_year, end_year do
+	date = year .. month_day
+	table.insert(full_dates, date)
 end
 
-for i = 1, num_years do
+size = table.getn(full_dates)
+for i = 1, size do
 	returnString = returnString .. full_dates[i] .. "\n"
 end
 
+return returnString
+
+
+-- Use this later to find the starting positions of
+-- where each line is that has the journal entry:
 -- start, fin = string.find(text, "2010%-02%-19")
 -- returnString = start .. ", " .. fin .. "\n"
 
@@ -53,9 +53,5 @@ Probably has something to do with finding the size of full_dates,
    text into a new table, with each date separated.
 Then go through those dates, put onto returnString.
 ]]
-
-
-return returnString
-
 
 
