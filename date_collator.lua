@@ -11,6 +11,11 @@ https://github.com/evitiello/TrunkNotesScripts
 -- {{lua try.lua, try_journal, 2, 2009, 2010}}
 
 
+-- Instead of using multiple years in the arguments list,
+-- take in only a start year and
+-- use the end year as the current year:
+-- start_year, end_year = cur_year
+
 
 journal_name = wiki.get(args[1])
 text = journal_name.contents
