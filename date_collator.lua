@@ -8,8 +8,8 @@ https://github.com/evitiello/TrunkNotesScripts
 # bug list:
 # todo:
 ]]
--- {{lua try.lua, try_journal, 2, 2009, 2010}}
 
+-- {{lua try.lua, try_journal, 2008}}
 
 -- Instead of using multiple years in the arguments list,
 -- take in only a start year and
@@ -17,16 +17,20 @@ https://github.com/evitiello/TrunkNotesScripts
 -- start_year, end_year = cur_year
 
 
-journal_name = wiki.get(args[1])
-text = journal_name.contents
+journal = wiki.get(args[1])
+text = journal.contents
 
+-- To make this work with the provided journal,
+-- going to manually set month_day for now. Otherwise use:
+-- month_day = os.date("-%m-%d - ")
+month_day = "-02-19 - "
 returnString = ""
 full_dates = {}
 num_years = args[2]
--- To make this work with the provided journal,
--- going to manually set month_day for now. Otherwise use:
--- month_day = os.date('-%m-%d - ')
-month_day = "-02-19 - "
+
+-- start_year = args[2]
+-- end_year = os.date("%Y")
+
 
 for i = 1, num_years do
 	table.insert(full_dates, args[i+2] .. month_day)
@@ -52,5 +56,6 @@ Then go through those dates, put onto returnString.
 
 
 return returnString
+
 
 
