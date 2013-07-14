@@ -34,7 +34,20 @@ for i = 1, size do
 	returnString = returnString .. full_dates[i] .. "\n"
 end
 
+
+-- This shows how to escape the strings properly so they can be searched.
+returnString = ""
+date = "2010-02-19 - "
+date = string.gsub(date, "-", "%%-")
+start, fin = string.find(journal, date)
+returnString = start .. ", " .. fin .. "\n"
 return returnString
+
+
+-- returnString = ""
+-- start, fin = string.find(journal, full_dates[1])
+-- returnString = start .. ", " .. fin .. "\n"
+-- return returnString
 
 
 -- Use this to find the starting positions of
@@ -42,7 +55,7 @@ return returnString
 -- See if with Lua you can start a string.find at a specific location,
 -- so you could start searching at 'start' and go to '\n', then
 -- take that whole bit and add to returnString
--- start, fin = string.find(text, "2010%-02%-19")
+-- start, fin = string.find(journal, "2009%-02%-19 %- ")
 -- returnString = start .. ", " .. fin .. "\n"
 
 
