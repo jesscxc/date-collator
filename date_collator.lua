@@ -15,7 +15,7 @@ https://github.com/evitiello/TrunkNotesScripts
 -- journal = wiki.get(args[1]).contents
 -- start_year = args[2]
 -- end_year = os.date("%Y")
-journal = "2009-02-19 - First day of reading Proust and the Squid\n2010-02-19 - Did website work for clients\n2011-08-17 - Read through Gengis Khan book, worked on speech"
+journal = "2009-02-19 - First day of reading Proust and the Squid\n2010-02-19 - Did website work for clients\n2011-08-17 - Read through Genghis Khan book, worked on speech"
 start_year = "2009"
 end_year = "2012"
 
@@ -53,14 +53,14 @@ for i = 1, size do
 		if d_start == nil then
 			-- pass
 		else
+			day_text = day_text .. start .. ", " .. d_fin .. "\n"
 			-- Something like:
 			-- day_text = day_text .. (string.get journal d_start d_fin) .. "\n"
-			day_text = day_text .. start .. ", " .. d_fin .. "\n"
-			print(day_text)
+			returnString = returnString .. day_text .. "\n\n"
 		end
 
 		-- returnString = returnString .. day_text .. "\n\n"
-		returnString = returnString .. start .. ", " .. fin .. "\n"
+		-- returnString = returnString .. start .. ", " .. fin .. "\n"
 	end
 
 
@@ -70,8 +70,8 @@ for i = 1, size do
 	-- Join all these day_texts with "\n" and return them.
 end
 
-return returnString
--- return day_text
+-- return returnString
+return day_text
 
 
 
