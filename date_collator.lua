@@ -17,7 +17,7 @@ https://github.com/evitiello/TrunkNotesScripts
 -- end_year = os.date("%Y")
 journal = "2010-02-19 - Did website work for clients"
 start_year = "2010"
-end_year = "2011"
+end_year = "2012"
 
 -- To make this work with the provided journal,
 -- going to manually set month_day for now. Otherwise use:
@@ -39,7 +39,6 @@ size = 0
 for k, v in pairs(full_dates) do
     size = size + 1
 end
-print(size)
 
 for i = 1, size do
 	date = full_dates[i]
@@ -47,16 +46,29 @@ for i = 1, size do
 
 	-- returnString = "" .. date
 
-	-- Why is this always returning nil ?
-	value = string.find(journal, date)
-	returnString = value
+	-- -- Why is this always returning nil ?	
+	-- value = string.find(journal, date)
+	-- if value == nil then
+	-- 	print("ignore this")
+	-- else
+
+	start, fin = string.find(journal, date)
+	if start == nil then
+		print("ignore this")
+	else
+		returnString = returnString .. start .. ", " .. fin .. "\n"
+	end
+
+	-- returnString = value
 
 	-- start, fin = string.find(journal, date)
 	-- returnString = returnString .. start .. ", " .. fin .. "\n"
 
 	-- Something like, if find date in journal,
 	-- add start and fin to returnString
-	-- otherwise add nothing
+	-- otherwise add nothing.
+	-- Then set day_text = to string.find from start to the next "\n",
+	-- join all these day_texts and return them.
 end
 
 return returnString
