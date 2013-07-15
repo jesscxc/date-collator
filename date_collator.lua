@@ -12,7 +12,12 @@ https://github.com/evitiello/TrunkNotesScripts
 -- {{lua try.lua, try_journal, 2008}}
 
 
-journal = wiki.get(args[1]).contents
+-- journal = wiki.get(args[1]).contents
+-- start_year = args[2]
+-- end_year = os.date("%Y")
+journal = "2010-02-19 - Did website work for clients"
+start_year = "2010"
+end_year = "2011"
 
 -- To make this work with the provided journal,
 -- going to manually set month_day for now. Otherwise use:
@@ -20,8 +25,6 @@ journal = wiki.get(args[1]).contents
 month_day = "-02-19 - "
 returnString = ""
 full_dates = {}
-start_year = args[2]
-end_year = os.date("%Y")
 
 
 for year = start_year, end_year do
@@ -34,7 +37,11 @@ for i = 1, size do
 	date = full_dates[i]
 	date = string.gsub(date, "-", "%%-")
 
-	returnString = returnString .. date .. "\n"
+	returnString = "" .. date
+
+	-- This returns nothing... what's going on?
+	-- value = string.find(journal, date)
+	-- returnString = value
 
 	-- start, fin = string.find(journal, date)
 	-- returnString = returnString .. start .. ", " .. fin .. "\n"
@@ -46,10 +53,15 @@ end
 
 return returnString
 
+-- Looking at the above in the Lua demo interpreter,
+-- http://www.lua.org/cgi-bin/demo
+-- has an error message of:
+-- input:18: attempt to call field 'getn' (a nil value)
 
 
 -- -- This shows how to escape the strings properly so they can be searched.
 -- -- Except that for some reason this doesn't seem to be working.
+-- -- Rather, it works in the online interpreter, but not in Trunk Notes...
 -- -- What the heck, Lua??
 -- date = "2010-02-19 - "
 -- journal = "2010-02-19 - Did website work for clients"
