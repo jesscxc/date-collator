@@ -15,8 +15,8 @@ https://github.com/evitiello/TrunkNotesScripts
 -- journal = wiki.get(args[1]).contents
 -- start_year = args[2]
 -- end_year = os.date("%Y")
-journal = "2010-02-19 - Did website work for clients"
-start_year = "2010"
+journal = "2009-02-19 - First day of reading Proust and the Squid\n2010-02-19 - Did website work for clients\n2011-08-17 - Read through Gengis Khan book, worked on speech"
+start_year = "2009"
 end_year = "2012"
 
 -- To make this work with the provided journal,
@@ -46,22 +46,32 @@ for i = 1, size do
 
 	start, fin = string.find(journal, date)
 	if start == nil then
-	  -- must check that the return value is not nil, or else it breaks
+	  -- pass
 	else
+		day_text = ""
+		d_start, d_fin = string.find(journal, "\n", start)
+		if d_start == nil then
+			-- pass
+		else
+			-- Something like:
+			-- day_text = day_text .. (string.get journal d_start d_fin) .. "\n"
+			day_text = day_text .. start .. ", " .. d_fin .. "\n"
+			print(day_text)
+		end
+
+		-- returnString = returnString .. day_text .. "\n\n"
 		returnString = returnString .. start .. ", " .. fin .. "\n"
 	end
 
+
 	-- Something like, if find date in journal,
-	-- add start and fin to returnString
-	-- otherwise add nothing.
-	-- Then set day_text = to string.find from start to the next "\n",
-	-- join all these day_texts and return them.
+	-- add start and fin to returnString, otherwise add nothing.
+	-- Then set day_text = to string.find from start to the next "\n".
+	-- Join all these day_texts with "\n" and return them.
 end
 
 return returnString
+-- return day_text
 
--- Looking at the above in the Lua demo interpreter,
--- http://www.lua.org/cgi-bin/demo
--- has an error message of:
--- input:18: attempt to call field 'getn' (a nil value)
+
 
