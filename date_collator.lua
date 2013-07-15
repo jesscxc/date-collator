@@ -44,25 +44,12 @@ for i = 1, size do
 	date = full_dates[i]
 	date = string.gsub(date, "-", "%%-")
 
-	-- returnString = "" .. date
-
-	-- -- Why is this always returning nil ?	
-	-- value = string.find(journal, date)
-	-- if value == nil then
-	-- 	print("ignore this")
-	-- else
-
 	start, fin = string.find(journal, date)
 	if start == nil then
-		print("ignore this")
+	  -- must check that the return value is not nil, or else it breaks
 	else
 		returnString = returnString .. start .. ", " .. fin .. "\n"
 	end
-
-	-- returnString = value
-
-	-- start, fin = string.find(journal, date)
-	-- returnString = returnString .. start .. ", " .. fin .. "\n"
 
 	-- Something like, if find date in journal,
 	-- add start and fin to returnString
@@ -78,15 +65,3 @@ return returnString
 -- has an error message of:
 -- input:18: attempt to call field 'getn' (a nil value)
 
-
--- -- This shows how to escape the strings properly so they can be searched.
--- -- Except that for some reason this doesn't seem to be working.
--- -- Rather, it works in the online interpreter, but not in Trunk Notes...
--- -- What the heck, Lua??
--- date = "2010-02-19 - "
--- journal = "2010-02-19 - Did website work for clients"
--- date = string.gsub(date, "-", "%%-")
--- print(date .. "\n")
--- start, fin = string.find(journal, date)
--- returnString = "" .. start .. ", " .. fin
--- print(returnString)
