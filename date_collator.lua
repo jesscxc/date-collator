@@ -33,6 +33,7 @@ size = table.getn(full_dates)
 for i = 1, size do
 	date = full_dates[i]
 	date = string.gsub(date, "-", "%%-")
+
 	returnString = returnString .. date .. "\n"
 
 	-- start, fin = string.find(journal, date)
@@ -41,16 +42,19 @@ for i = 1, size do
 	-- Something like, if find date in journal,
 	-- add start and fin to returnString
 	-- otherwise add nothing
-
 end
 
 return returnString
 
 
+
 -- -- This shows how to escape the strings properly so they can be searched.
--- returnString = ""
+-- -- Except that for some reason this doesn't seem to be working.
+-- -- What the heck, Lua??
 -- date = "2010-02-19 - "
+-- journal = "2010-02-19 - Did website work for clients"
 -- date = string.gsub(date, "-", "%%-")
+-- print(date .. "\n")
 -- start, fin = string.find(journal, date)
--- returnString = start .. ", " .. fin .. "\n"
--- return returnString
+-- returnString = "" .. start .. ", " .. fin
+-- print(returnString)
