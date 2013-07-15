@@ -32,16 +32,24 @@ for year = start_year, end_year do
 	table.insert(full_dates, date)
 end
 
-size = table.getn(full_dates)
+
+-- This appears to be the only way to accurately get
+-- the size of a table in Lua.
+size = 0
+for k, v in pairs(full_dates) do
+    size = size + 1
+end
+print(size)
+
 for i = 1, size do
 	date = full_dates[i]
 	date = string.gsub(date, "-", "%%-")
 
-	returnString = "" .. date
+	-- returnString = "" .. date
 
-	-- This returns nothing... what's going on?
-	-- value = string.find(journal, date)
-	-- returnString = value
+	-- Why is this always returning nil ?
+	value = string.find(journal, date)
+	returnString = value
 
 	-- start, fin = string.find(journal, date)
 	-- returnString = returnString .. start .. ", " .. fin .. "\n"
