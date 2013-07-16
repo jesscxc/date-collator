@@ -15,8 +15,8 @@ https://github.com/evitiello/TrunkNotesScripts
 -- journal = wiki.get(args[1]).contents
 -- start_year = args[2]
 -- end_year = os.date("%Y")
-journal = "2009-02-19 - First day of reading Proust and the Squid\n2010-02-19 - Did website work for clients\n2011-08-17 - Read through Genghis Khan book, worked on speech"
-start_year = "2009"
+journal = "2009-01-14 - Helped wheelchair man up hill\n2009-02-19 - First day of reading Proust and the Squid\n2010-02-19 - Did website work for clients\n2011-08-17 - Read through Genghis Khan book, worked on speech"
+start_year = "2005"
 end_year = "2012"
 
 -- To make this work with the provided journal,
@@ -25,6 +25,7 @@ end_year = "2012"
 month_day = "-02-19 - "
 returnString = ""
 full_dates = {}
+day_text = ""
 
 
 for year = start_year, end_year do
@@ -48,7 +49,6 @@ for i = 1, size do
 	if start == nil then
 	  -- pass
 	else
-		day_text = ""
 		d_start, d_fin = string.find(journal, "\n", start)
 		if d_start == nil then
 			-- pass
