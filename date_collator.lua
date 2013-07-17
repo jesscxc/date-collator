@@ -35,7 +35,7 @@ end
 
 
 -- This appears to be the only way to accurately get
--- the size of a table in Lua.
+-- the size of a table in Lua, if it might be empty.
 size = 0
 for k, v in pairs(full_dates) do
     size = size + 1
@@ -46,18 +46,16 @@ for i = 1, size do
 	date = string.gsub(date, "-", "%%-")
 
 	start, fin = string.find(journal, date)
-	if start == nil then
-	  -- pass
-	else
+	if not (start == nil) then
 		d_start, d_fin = string.find(journal, "\n", start)
-		if d_start == nil then
-			-- pass
-		else
+		if not (d_start == nil) then
 			day_text = day_text .. start .. ", " .. d_fin .. "\n"
 			-- Something like:
 			-- day_text = day_text .. (string.get journal d_start d_fin) .. "\n"
 			returnString = returnString .. day_text .. "\n\n"
+		-- else
 		end
+	else
 
 		-- returnString = returnString .. day_text .. "\n\n"
 		-- returnString = returnString .. start .. ", " .. fin .. "\n"

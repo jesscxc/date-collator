@@ -151,3 +151,12 @@ text = "name = Anna"
 print(string.sub(text, 4, 6))
 
 
+
+# Using not to reverse booleans
+x = 10
+if not (z == 11) then
+print(x)
+end
+-- returns 10
+
+
