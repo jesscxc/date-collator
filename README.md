@@ -20,7 +20,7 @@ These pieces we'll name:
 2) date_collator.lua
 3) this_dates_events.txt
 
-The file journal.txt needs to start with the date and have the whole entry on one line.
+The file journal.txt needs to start with the date and have the whole entry on one line. The last line needs a newline: "\n".
 
 Copy the date_collator.lua file into Trunk Notes.
 
