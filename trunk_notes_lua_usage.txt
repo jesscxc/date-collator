@@ -132,3 +132,15 @@ return returnString
 Use the Lua demo interpreter: http://www.lua.org/cgi-bin/demo
 
 
+
+# This may be helpful for combining all the different locations of the day_text in the journal:
+The string.find function has an optional third parameter: an index that tells where in the subject string to start the search. This parameter is useful when we want to process all the indices where a given pattern appears. We search for a new pattern repeatedly, each time starting after the position where we found the previous one. As an example, the following code makes a table with the positions of all newlines in a string:
+
+local t = {}                   -- table to store the indices
+local i = 0
+while true do
+  i = string.find(s, "\n", i+1)    -- find 'next' newline
+  if i == nil then break end
+  table.insert(t, i)
+end
+
