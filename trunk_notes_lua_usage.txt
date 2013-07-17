@@ -144,3 +144,10 @@ while true do
   table.insert(t, i)
 end
 
+
+
+# Use string.sub to return slices of a string
+text = "name = Anna"
+print(string.sub(text, 4, 6))
+
+
