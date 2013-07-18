@@ -26,15 +26,14 @@ Copy the date_collator.lua file into Trunk Notes.
 
 Copy this_dates_events.txt to Trunk Notes, or paste this line into a page of your choosing:
 
-{{lua date_collator.lua, journal.txt, (start_year), (end_year)}}
+{{lua date_collator.lua, journal.txt, (start_year)}}
 
-(You also need to have the years you want to look for. (do you really need this?))
+Put in the start_year that you want to start with.
 
 Going to this_dates_events.txt will load the script, run it on your journal, and output the text to the page.
 
 
 ## Edge Cases
- - make sure it works with feb 29?
 
 ## Examples
 ## Contributing
