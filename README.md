@@ -28,7 +28,7 @@ Copy this_dates_events.txt to Trunk Notes, or paste this line into a page of you
 
 {{lua date_collator.lua, journal.txt, (start_year)}}
 
-Put in the start_year that you want to start with.
+Put in the start_year that you want to start with. The end_year is set to this year's.
 
 Going to this_dates_events.txt will load the script, run it on your journal, and output the text to the page.
 
