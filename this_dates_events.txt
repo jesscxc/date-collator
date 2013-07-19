@@ -1,2 +1,0 @@
-
-{{lua date_collator.lua, journal.txt, (array_of_years)}}

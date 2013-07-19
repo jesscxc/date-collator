@@ -19,22 +19,24 @@ So you have three pieces:
 These pieces we'll name:
 1) journal.txt
 2) date_collator.lua
-3) this_dates_events.txt
+3) date_events.txt
 
-The file journal.txt needs to start with the date and have the whole entry on one line. The last line needs a newline: "\n".
+The file journal.txt needs to start with the date and have each entry on one line. Look at journal.txt to see an example.
 
 Copy the date_collator.lua file into Trunk Notes. (note: The current version of Trunk Notes may have a bug where date_collator needs to end with .txt instead of .lua)
 
-Copy this_dates_events.txt to Trunk Notes, or paste this line into a page of your choosing:
+Copy date_events.txt into Trunk Notes, or paste this line into a page of your choosing:
 
-{{lua date_collator.lua, journal.txt, (start_year)}}
+{{lua date_collator.lua, journal.txt, start_year}}
 
-Put in the start_year that you want to start at. The script will collate until reaching the current year.
+Put in the start_year that you want.
 
-Going to this_dates_events.txt will load the script, run it on your journal, and output the text to the page.
+The script will collate until reaching the current year.
+
+Going to date_events.txt will load the script, run it on your journal, and output the text to the page.
 
 
 ## Contributing
- - allow entries to be over multiple lines, where it starts at one date and then ends right before (\nYYYY-MM-DD), for example
+ - allow entries to be over multiple lines, where it starts at one date and then ends right before another (\nYYYY-MM-DD), for example
  - add features
 

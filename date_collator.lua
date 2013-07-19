@@ -6,7 +6,7 @@ https://github.com/jessc
 https://github.com/evitiello/TrunkNotesScripts
 ]]
 
--- Example line to place in Trunk Notes:
+-- Example line to place in Trunk Notes page:
 -- {{lua date_collator.lua, journal, 2001}}
 journal = wiki.get(args[1]).contents
 start_year = args[2]
