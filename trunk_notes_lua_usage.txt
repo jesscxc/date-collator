@@ -1,5 +1,7 @@
 
-# Some text on how Lua interfaces with Trunk Notes
+
+# Some helpful info on how Lua works and how it interfaces with Trunk Notes.
+
 
 
 {{lua Multiply.lua, 5, 10}}
@@ -7,15 +9,21 @@ n1 = args[1]
 n2 = args[2]
 return n1 * n2
 
-# some people on the internet say ... should return a table of all the arguments, something like:
+
+
+
+# some people on the internet say ... (dotdotdot) should return a table of all the arguments, something like:
 return ...
 # haven't figured out how to get it to work yet, though
+
 
 
 
 A wiki page is a Lua table (a hash) describing the page. The following attributes are available:
 contents – the actual contents of the page
 arguments – the list of arguments taken from the query string
+
+
 
 
 page = wiki.get(title)
@@ -37,6 +45,8 @@ if is_a_front then
 end
 
 
+
+
 string.find() will find the first instance of its second argument in its first, returning two values - where the match starts, and where the match ends. In other words:
 string.find('foobar', 'foo') -->1  3
 string.find('foobar', 'bar') -->4  6
@@ -50,93 +60,36 @@ http://www.lua.org/pil/11.1.html
 
 
 
-
-
-
-
-
-
-
--- Tried hard to find a more elegant solution (such as setting a variable to ..., which is a table that contains all the args. Doesn't seem to work in Trunk Notes, so had to resort to the Get Stuff Done philosophy.
--- Note: This doesn't seem to work, yet, and it's unclear why not.
--- {{lua try.lua, true, 2, 100, 102}}
---[[
-more_args = args[2]
-num_args = args[3]
-total = {more_args, num_args}
-x = unpack{total}
-return x
-]]
---[[
-more_args = args[1]
-num_args = args[2]
-
-if more_args then
-  if num_args == 2 then
-    extra_arg_1 = args[2]
-    extra_arg_2 = args[3]
-    all_args = {extra_arg_1, extra_arg_2}
-  elseif num_args == 3 then
-    extra_arg_1 = args[2]
-    extra_arg_2 = args[3]
-    all_args = {extra_arg_1, extra_arg_2, extra_arg_3}
-  elseif num_args == 4 then
-    extra_arg_1 = args[2]
-    extra_arg_2 = args[3]
-    extra_arg_3 = args[4]
-    all_args = {extra_arg_1, extra_arg_2, extra_arg_3, extra_arg_4}
-  end
-end
-return all_args
-]]
-
-
-
-
-
-
-
-
-
--- Finally! This code seems to work right.
--- Seems you have to create a new file (test.lua),
--- then paste this code, and it's executed properly:
---[[
+# Helpful code example from
+# https://github.com/evitiello/TrunkNotesScripts
 -- Displays the last 20 pages that have been modified.
 function string.starts(String,Start)
    return string.sub(String,1,string.len(Start))==Start
 end
-
 returnString = ""
-
 pageTimes = {}
 pageTimeMapping = {}
-
 for pageIteration, pageTitle in ipairs(wiki.titles()) do
   pageUpdatedTime = wiki.get(pageTitle).updated
   table.insert(pageTimes, pageUpdatedTime)
   pageTimeMapping[pageUpdatedTime] = pageTitle
 end
 table.sort(pageTimes, function(a,b) return a>b end)
-
 for i=1,5 do
   returnString = returnString .. "[[" .. pageTimeMapping[pageTimes[i]] .. "]]\n"
 end
-
 return returnString
-]]
 
 
 
 
-Use the Lua demo interpreter: http://www.lua.org/cgi-bin/demo
+Lua Online Interpreter: http://www.lua.org/cgi-bin/demo
 
 
 
-# This may be helpful for combining all the different locations of the day_text in the journal:
+
 The string.find function has an optional third parameter: an index that tells where in the subject string to start the search. This parameter is useful when we want to process all the indices where a given pattern appears. We search for a new pattern repeatedly, each time starting after the position where we found the previous one. As an example, the following code makes a table with the positions of all newlines in a string:
-
-local t = {}                   -- table to store the indices
+local t = {}                       -- table to store the indices
 local i = 0
 while true do
   i = string.find(s, "\n", i+1)    -- find 'next' newline
@@ -146,9 +99,11 @@ end
 
 
 
+
 # Use string.sub to return slices of a string
 text = "name = Anna"
 print(string.sub(text, 4, 6))
+
 
 
 
