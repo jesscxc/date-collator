@@ -6,8 +6,8 @@ https://github.com/jessc
 https://github.com/evitiello/TrunkNotesScripts
 ]]
 
--- Example line to place in Trunk Notes
--- {{lua date_collator.lua, journal, 2000}}
+-- Example line to place in Trunk Notes:
+-- {{lua date_collator.lua, journal, 2001}}
 journal = wiki.get(args[1]).contents
 start_year = args[2]
 
@@ -18,7 +18,9 @@ returnString = ""
 full_dates = {}
 
 for year = start_year, end_year do
-	date = year .. month_day
+	-- Have to do some funky escaping
+	-- because Lua sees hyphens as special
+	date = string.gsub(year .. month_day, "-", "%%-")
 	table.insert(full_dates, date)
 end
 
@@ -33,10 +35,6 @@ end
 
 for i = 1, size do
 	date = full_dates[i]
-	-- Have to do some funky escaping
-	-- because Lua sees hyphens as special
-	date = string.gsub(date, "-", "%%-")
-
 	start, fin = string.find(journal, date)
 	if not (start == nil) then
 		d_start, d_fin = string.find(journal, "\n", start)
